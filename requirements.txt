@@ -1,0 +1,7 @@
+
+# external requirements
+numpy
+pandas
+sciKit-learn
+opencv-python
+matplotlib

@@ -11,11 +11,20 @@ Results:
     -   LDA                     ->  0.9
     -   QDA                     ->  0.915
     -   KDE (Gauss, 9)          ->  0.25
-    -   RF  (1000, 0)           ->  0.82
+    -   rf (n_estimators=1000, random_state=0) -> 0.84
     -   SVM                     ->  0.6
 
 
+200 Image full preprocessing
 random_state=75
+GNB (defaults) = 0.425
+LDA (defaults) = 0.8812
+QDA (defaults) = 0.9625
+KDE (defaults) = 0.25
+rf_model = RandomForestClassifier(n_estimators=1000, max_depth=10, min_samples_split=5, min_samples_leaf=4, max_features='sqrt', random_state=42)
+0.6625
+
+
 svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1)
 svm Accuracy: 0.95625
 

@@ -5,7 +5,7 @@
 becauase i depend on this route for loading and saving images after processing 
 
 ```
-├──  data (will be ignored in git because it is large , but shuold be local in this directory as it will be used in the project)
+├──  data (will be ignored in git because it is large , but should be local in this directory as it will be used in the project)
 |   ├── processed      <- The final, canonical data sets for modeling.
 │           ├── font-dataset      <- The final, canonical data sets for modeling.
 │                   ├── (IBM Plex Sans Arabic)

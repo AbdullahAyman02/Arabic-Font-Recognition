@@ -1,0 +1,25 @@
+Preprocessing module should handle different paragraphs formats in images like:
+• Text alignment • Text color
+• Text size/weight • Text rotation
+• Image blur • Salt and pepper noise
+• Brightness variation
+
+Preprocessing:
+1 - Fixing rotation
+2 - Binarize
+3 - Cropping image to only fit the text area 
+
+Feature extraction:
+Added build_features.ipnyb for feature extraction.
+Used gabor filter and area ratio as features. Added energy val to gabor filter.
+Used this file to extract features from 200 images per font (in total 800) took 100 minutes.
+The output file with the xtracted features is features_200.csv
+
+
+In model.ipnyb:
+Split the dataset into training and validation then tested using the following models:
+ 1- Gaussian Naive Bayes
+ 2- Linear Discriminant ANalysis
+ 3- Quadratic Discriminant ANalysis
+ 4- Kernel Density estimation then Bayes Classifier
+ 5- SVM

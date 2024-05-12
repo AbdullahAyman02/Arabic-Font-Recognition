@@ -1,6 +1,15 @@
-Initial Preprocessing Steps
-
-
-
-Current Preprocessing Steps (12/5/24 9:32)
-
+Preprocessing without rotation and cropping
+250 Image of Each Font
+Features:
+    -   Area of enclosed characters
+    -   Gabor Filter    ->  Frequencies = [0.1, 0.2, 0.3, 0.4]
+Splitting:
+    -   test_size = 0.2
+    -   random_state = 0
+Results:
+    -   Gaussian Naive Bayes    ->  0.35
+    -   LDA                     ->  0.9
+    -   QDA                     ->  0.915
+    -   KDE (Gauss, 9)          ->  0.25
+    -   RF  (1000, 0)           ->  0.82
+    -   SVM                     ->  0.6

@@ -5,3 +5,4 @@ pandas
 sciKit-learn
 opencv-python
 matplotlib
+scikit-image

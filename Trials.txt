@@ -13,3 +13,14 @@ Results:
     -   KDE (Gauss, 9)          ->  0.25
     -   RF  (1000, 0)           ->  0.82
     -   SVM                     ->  0.6
+
+
+random_state=75
+svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1)
+svm Accuracy: 0.95625
+
+svm_model = svm.SVC(kernel='poly', C=100, gamma='auto', degree=3, coef0=1)
+svm Accuracy: 0.9625
+
+svm_model = svm.SVC(kernel='poly', C=500, gamma='auto', degree=3, coef0=1)
+svm Accuracy: 0.925

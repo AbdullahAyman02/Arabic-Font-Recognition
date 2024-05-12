@@ -13,8 +13,12 @@ Feature extraction:
 Added build_features.ipnyb for feature extraction.
 Used gabor filter and area ratio as features. Added energy val to gabor filter.
 Used this file to extract features from 200 images per font (in total 800) took 100 minutes.
-The output file with the xtracted features is features_200.csv
+The output file with the extracted features is features_200.csv
 
+Training Datasets:
+feature_250.csv     -> preprocessing without rotation and crop, feature_extraction enclosing areas and gabor filter
+feature_200.csv     -> full preprocessing, feature_extraction enclosing areas and gabor filter
+features_1000.csv   -> full preprocessing, feature_extraction enclosing areas and Zernike's Moments
 
 In model.ipnyb:
 Split the dataset into training and validation then tested using the following models:

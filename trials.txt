@@ -14,9 +14,10 @@ Results:
     -   rf (n_estimators=1000, random_state=0) -> 0.84
     -   SVM                     ->  0.6
 
+-----------------------------------------------------------------------------------------
 
 200 Image full preprocessing
-random_state=75
+random_state=75     (of the dataset)
 GNB (defaults) = 0.425
 LDA (defaults) = 0.8812
 QDA (defaults) = 0.9625
@@ -29,7 +30,25 @@ svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1)
 svm Accuracy: 0.95625
 
 svm_model = svm.SVC(kernel='poly', C=100, gamma='auto', degree=3, coef0=1)
+svm_model = svm.SVC(kernel='linear', C=500, gamma='auto')
 svm Accuracy: 0.9625
 
 svm_model = svm.SVC(kernel='poly', C=500, gamma='auto', degree=3, coef0=1)
 svm Accuracy: 0.925
+
+----------------------------------------------------------------------------
+
+1000 Image full preprocessing
+features: enclosing area, zernike's moments
+random state = 0 (of the dataset)
+
+GNB (defaults) = 0.2954
+LDA (defaults) = 0.313
+QDA (defaults) = 0.3523
+KDE (Gauss, 9) = 0.2696
+RF (n_estimators=1000, random_state=75) = 0.4159
+SVM (kernel='poly', C=100, gamma='auto', degree=3, coef0=1) = 0.3414
+
+------------------------------------------------------------------------------
+50 Image full preprocessing
+features: gabor filter

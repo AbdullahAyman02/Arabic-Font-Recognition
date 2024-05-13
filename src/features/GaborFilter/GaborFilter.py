@@ -49,7 +49,7 @@ def apply_gabor_filters(image , thetas, frequencies):
     return features
 
 # apply gabor filters to the image
-def GaborFilter(image):
+def gabor_filter(image):
     avg_width = 604.47125
     avg_height = 961.69775
     thetas = [0 , np.pi/4 , np.pi/2 , 3*np.pi/4] # mentioned in the papers  0  , 45 , 90 , 135

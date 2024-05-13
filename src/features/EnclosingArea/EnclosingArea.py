@@ -18,34 +18,35 @@ def get_area_ratio(image):
     ratio = num_black_pixels / total_area
     return ratio 
 
-import matplotlib.pyplot as plt
+def test_plot():
+    import matplotlib.pyplot as plt
 
-# Assuming 'features' is your DataFrame and 'area_ratio' is your 1-D feature
-# and 'font_type' is your class label
+    # Assuming 'features' is your DataFrame and 'area_ratio' is your 1-D feature
+    # and 'font_type' is your class label
 
-# Get unique classes
-def plot_1D_feature(features):
-    classes = features['font_type'].unique()
+    # Get unique classes
+    def plot_1D_feature(features):
+        classes = features['font_type'].unique()
 
-    # Create a color map
-    colors = ['r', 'g', 'b', 'y']  # Add more colors if you have more classes
+        # Create a color map
+        colors = ['r', 'g', 'b', 'y']  # Add more colors if you have more classes
 
-    for i, cls in enumerate(classes):
-        # Extract the feature values for this class
-        feature_values = features[features['font_type'] == cls]['area_ratio']
+        for i, cls in enumerate(classes):
+            # Extract the feature values for this class
+            feature_values = features[features['font_type'] == cls]['area_ratio']
 
-        # Create an array of the same length as feature_values for the x-axis
-        x = np.arange(len(feature_values))
+            # Create an array of the same length as feature_values for the x-axis
+            x = np.arange(len(feature_values))
 
-        # Plot the feature values
-        plt.scatter(x, feature_values, color=colors[i], label=cls)
+            # Plot the feature values
+            plt.scatter(x, feature_values, color=colors[i], label=cls)
 
-    # Add a legend
-    plt.legend()
+        # Add a legend
+        plt.legend()
 
-    # Show the plot
-    plt.show()
+        # Show the plot
+        plt.show()
 
 # Main function
-def EnclosingArea(image):
+def enclosing_area(image):
     return get_area_ratio(image)

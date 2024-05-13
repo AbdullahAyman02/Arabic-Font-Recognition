@@ -1,0 +1,1 @@
+Preprocessing without hough transform over all the images took took 47.5 minutes

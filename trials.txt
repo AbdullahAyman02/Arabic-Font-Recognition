@@ -64,3 +64,7 @@ SVM (kernel='poly', C=100, gamma='auto', degree=3, coef0=1) = 0.9661
 SVM (kernel='rbf', C=1000, gamma='scale') = 0.9552
 svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1) = 0.9701897018970189
 svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=4, coef0=2) = svm Accuracy: 0.9715447154471545
+
+random state = 0 (of the dataset)
+svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1) = svm Accuracy: 0.9742547425474255
+

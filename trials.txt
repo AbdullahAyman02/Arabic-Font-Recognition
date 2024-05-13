@@ -50,5 +50,17 @@ RF (n_estimators=1000, random_state=75) = 0.4159
 SVM (kernel='poly', C=100, gamma='auto', degree=3, coef0=1) = 0.3414
 
 ------------------------------------------------------------------------------
-50 Image full preprocessing
-features: gabor filter
+
+1000 Image full preprocessing
+features: enclosing area, gabor Filter
+random state = 75 (of the dataset)
+
+GNB (defaults) = 0.3184
+LDA (defaults) = 0.9065
+QDA (defaults) = 0.9485
+KDE (Gauss, 9) = 0.2629
+RF (n_estimators=1000, random_state=75) = 0.8157
+SVM (kernel='poly', C=100, gamma='auto', degree=3, coef0=1) = 0.9661
+SVM (kernel='rbf', C=1000, gamma='scale') = 0.9552
+svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=3, coef0=1) = 0.9701897018970189
+svm_model = svm.SVC(kernel='poly', C=10, gamma='auto', degree=4, coef0=2) = svm Accuracy: 0.9715447154471545

@@ -1,3 +1,6 @@
+'''
+This module is responsible for extracting the Zernike moments from the images.
+'''
 import cv2
 import mahotas
 import numpy as np

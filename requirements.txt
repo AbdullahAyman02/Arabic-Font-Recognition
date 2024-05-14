@@ -2,7 +2,7 @@
 # external requirements
 numpy
 pandas
-sciKit-learn
+scikit-learn
 opencv-python
 matplotlib
 scikit-image

@@ -71,6 +71,7 @@ def gabor_filter(image):
     avg_width = 604.47125
     avg_height = 961.69775
     thetas = [0 , np.pi/4 , np.pi/2 , 3*np.pi/4] # mentioned in the papers  0  , 45 , 90 , 135
+    # frequencies = [0.1, 0.2, 0.3, 0.4]
     frequencies = [0.1, 0.2, 0.3, 0.4]
     img = resize_image(image , avg_width , avg_height)
     gray_image = convert_to_grayscale(img)

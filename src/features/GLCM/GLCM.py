@@ -1,24 +1,35 @@
-'''
-This module extracts features from an image using Gray Level Co-occurrence Matrix (GLCM).
-'''
-
 import cv2
 import numpy as np
-import skimage as ski
+from skimage import feature
+from typing import List, Tuple
 
-def glcm_features(image, distances=[5], angles=[0], levels=256, symmetric=True, normed=True):
+
+def glcm_features(image: np.ndarray, distances: List[int] = [5], angles: List[float] = [0], levels: int = 256, symmetric: bool = True, normed: bool = True) -> np.ndarray:
+    '''
+    Extracts GLCM texture features from the given image.
+
+    Parameters:
+    image (numpy.ndarray): The input image.
+    distances (List[int]): List of pixel pair distances. Default is [5].
+    angles (List[float]): List of angles in radians. Default is [0].
+    levels (int): Number of gray levels. Default is 256.
+    symmetric (bool): Whether to make the GLCM matrix symmetric. Default is True.
+    normed (bool): Whether to normalize the GLCM matrix. Default is True.
+
+    Returns:
+    numpy.ndarray: Array of texture features.
+    '''
     # Convert image to grayscale if it is not already
-    if len(image.shape) == 3:
+    if image.ndim == 3:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Compute GLCM
-    glcm = ski.feature.graycomatrix(image, distances, angles, levels, symmetric=symmetric, normed=normed)
+    glcm = feature.greycomatrix(
+        image, distances, angles, levels, symmetric=symmetric, normed=normed)
 
     # Compute texture features
-    contrast = ski.feature.graycoprops(glcm, 'contrast')
-    dissimilarity = ski.feature.graycoprops(glcm, 'dissimilarity')
-    homogeneity = ski.feature.graycoprops(glcm, 'homogeneity')
-    energy = ski.feature.graycoprops(glcm, 'energy')
-    correlation = ski.feature.graycoprops(glcm, 'correlation')
+    properties = ['contrast', 'dissimilarity',
+                  'homogeneity', 'energy', 'correlation']
+    features = [feature.greycoprops(glcm, prop)[0, 0] for prop in properties]
 
-    return np.array([contrast[0][0], dissimilarity[0][0], homogeneity[0][0], energy[0][0], correlation[0][0]])
+    return np.array(features)

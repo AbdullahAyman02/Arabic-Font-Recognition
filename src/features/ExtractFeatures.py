@@ -13,5 +13,5 @@ def extract_features(image,kernels):
     lbp = extract_lbp_features(image)
     # convert lbp to a 1D array
     lbp = lbp.flatten()
-    features = np.concatenate((area, gabor, lbp))
+    features = np.concatenate((area, gabor, glcm, lbp))
     return features

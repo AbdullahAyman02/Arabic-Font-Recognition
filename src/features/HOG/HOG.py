@@ -1,10 +1,8 @@
-'''
-This module is responsible for extracting the HOG (Histogram of Oriented Gradients) features from the images.
-'''
-
 import cv2
+import numpy as np
 
-def hog(image):
+
+def hog(image: np.ndarray) -> np.ndarray:
     '''
     Extracts the HOG features from the given image.
 
@@ -15,9 +13,9 @@ def hog(image):
     numpy.ndarray: The HOG features extracted from the image.
     '''
     # Create a HOG descriptor
-    hog = cv2.HOGDescriptor()
+    hog_descriptor = cv2.HOGDescriptor()
 
     # Compute the HOG features
-    features = hog.compute(image)
+    features = hog_descriptor.compute(image)
 
     return features

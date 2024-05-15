@@ -49,7 +49,7 @@ def convert_to_grayscale(binary_image: np.ndarray) -> np.ndarray:
     return grayscale_image
 
 
-def apply_gabor_filters(image: np.ndarray, thetas: list[float], frequencies: list[float]) -> list:
+def apply_gabor_filters_ski(image: np.ndarray, thetas: list[float], frequencies: list[float]) -> list:
     '''
     Find Gabor filters using skimage then apply them and compute statistical features.
 
@@ -94,7 +94,7 @@ def apply_gabor_filters_cv(image: np.ndarray, kernels: list) -> list:
     return features
 
 
-def gabor_filter(image: np.ndarray, thetas: list[float], frequencies: list[float], avg_width: float = 604.47125, avg_height: float = 961.69775) -> list:
+def gabor_filter_ski(image: np.ndarray, thetas: list[float], frequencies: list[float], avg_width: float = 604.47125, avg_height: float = 961.69775) -> list:
     '''
     Resize and convert image to grayscale, then generate and apply Gabor filters using skimage to the image and compute 
     statistical features.
@@ -111,8 +111,23 @@ def gabor_filter(image: np.ndarray, thetas: list[float], frequencies: list[float
     '''
     img = resize_image(image, avg_width, avg_height)
     gray_image = convert_to_grayscale(img)
-    feature_vect = apply_gabor_filters(gray_image, thetas, frequencies)
+    feature_vect = apply_gabor_filters_ski(gray_image, thetas, frequencies)
     return feature_vect
+
+
+def generate_gabor_kernel_ski(thetas: list[float], frequencies: list[float]):
+    '''
+    Generate Gabor kernels using Skimage
+
+    Returns:
+        list: List of Gabor kernels.
+    '''
+    kernels = []
+    for theta in thetas:
+        for frequency in frequencies:
+            kernel = filters.gabor_kernel(frequency=frequency, theta=theta)
+            kernels.append(np.real(kernel))
+    return kernels
 
 
 def generate_gabor_kernel_cv(thetas: list[float], frequencies: list[float]) -> list:
